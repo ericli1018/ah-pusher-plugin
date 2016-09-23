@@ -1,18 +1,23 @@
 {
-  "author": "Evan Tahler <evantahler@gmail.com>",
-  "name": "ah-sample-plugin",
-  "description": "I am a simple sample plugin for actionhero",
-  "version": "0.0.6",
+  "author": "Eric Li <ericli1018@yahoo.com.tw>",
+  "name": "ah-pusher-plugin",
+  "description": "pusher plugin for actionhero",
+  "version": "0.0.1",
   "homepage": "http://actionherojs.com",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/evantahler/ah-sample-plugin.git"
-  },
-  "keywords": ["actionherojs", "actionhero", "sample", "ah-sample-plugin", "plugin", "sample plugin"],
+  "repository": {},
+  "license": "MIT",
+  "keywords": ["actionherojs", "actionhero", "plugin"],
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
     "postinstall": "scripts/postinstall.js"
+  },
+  "dependencies": {
+    "ejs": "latest",
+    "email-templates": "latest",
+    "node-pushnotifications": "latest",
+    "nodemailer": "latest",
+    "q": "latest"
   }
 }
