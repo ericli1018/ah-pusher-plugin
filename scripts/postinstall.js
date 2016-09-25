@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var path = require('path');
+var mkdirp = require('mkdirp');
 
 var localFile   = path.normalize(__dirname + '/../config/ah-pusher-plugin.js');
 var projectPath = path.normalize(process.cwd() + '/../../config/plugins');
@@ -20,7 +21,7 @@ if(!fs.existsSync(projectFile)){
 
   console.log("coppying " + templateFile + " to " + templateProjFile);
   try{
-    fs.mkdirSync(templateProjPath);
+    mkdirp.sync(templateProjPath);
   }catch(e){ }
   fs.createReadStream(templateFile).pipe(fs.createWriteStream(templateProjFile));
 }
