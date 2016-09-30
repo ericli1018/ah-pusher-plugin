@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ericli1018/ah-pusher-plugin.git"
+    "url": "git://github.com/ericli1018/ah-pusher-plugin.git"
   },
   "keywords": [
     "actionherojs",
@@ -30,6 +30,5 @@
     "node-pushnotifications": "latest",
     "nodemailer": "latest",
     "q": "latest"
-  },
-  "main": "index.js"
+  }
 }
