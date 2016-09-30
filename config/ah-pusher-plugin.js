@@ -2,32 +2,22 @@ exports['default'] = {
   pusher: function(api){
     return {
       Mail: {
-        options: {
+        options: { //referance node-mailer options
           service: 'smtp',
-          transport: 'smtp',
-		      pool: true,
+          pool: true,
           host: "smtp.amsalp.com.tw",
           port: 25,
           secure: false,
           name: "smtp-mailer",
           auth: {
-            user: "no-replay@amsalp.com.tw",
-            pass: "zaq1XSW@"
+            user: "no-replay@example.com.tw",
+            pass: "password"
           }
         },
-        /*
-        Default options when sending email.
-        Define other fields here if you wish.
-         */
         mailOptions: {
-          from: "no-replay@amsalp.com.tw",
+          from: "no-replay@example.com.tw",
           template: "default"
         },
-
-        /*
-        Email templates directory.
-        Defaults to root `templates` directory.
-         */
         templates: __dirname + "/../templates"
       },
       Push: {

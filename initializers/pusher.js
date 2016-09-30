@@ -1,5 +1,6 @@
 'use strict';
 
+//node-mailer https://github.com/nodemailer/nodemailer
 //node-pushnotifications https://github.com/appfeel/node-pushnotifications
 
 var PushNotifications = require('node-pushnotifications');
@@ -18,11 +19,13 @@ module.exports = {
     api.pusher = {};
     
     /* Mail */
-    api.pusher.sendMailTransport = nmailer.createTransport(configMail.options);
+    api.push.mail = {};
+
+    api.pusher.mail.transport = nmailer.createTransport(configMail.options);
 		
-    api.pusher.sendMail = function(options, cb){
+    api.pusher.mail.asyncSend = function(options, cb){
       /* add to task queue */
-      api.tasks.enqueue('sendMail', options, 'default', function(error, done) {
+      api.tasks.enqueue('AHPusherSendMail', options, 'default', function(error, done) {
         
         if(error)
           cb(true);
@@ -32,12 +35,12 @@ module.exports = {
       });
     };
 
-    api.pusher._sendMail = function(options, cb){
+    api.pusher.mail.syncSend = function(options, cb){
       
       //var options = {
       //  mail: {
-      //    to: 'ericli1018@yahoo.com.tw',
-      //    subject: 'Say Hello From IO!'
+      //    to: 'example@example.com.tw',
+      //    subject: 'Say Hello From AH!'
       //  },
       //  locals: {
       //    body: 'Hello! This is a test mail.'
@@ -60,16 +63,18 @@ module.exports = {
       }).then(function(resolved) {
           options.mail.html = resolved[0];
           options.mail.text = resolved[1];
-          return Q.ninvoke(api.pusher.sendMailTransport, "sendMail", options.mail);
+          return Q.ninvoke(api.pusher.mail.transport, "sendMail", options.mail);
       }).nodeify(cb);
     };
 
     /* init node-pushnotifications */
-    api.pusher.push = new PushNotifications(configPush);
+    api.pusher.push = {}
+
+    api.pusher.push.transport = new PushNotifications(configPush);
     
-    api.pusher.sendPush = function(options, cb){
+    api.pusher.push.asyncSend = function(options, cb){
       /* add to task queue */
-      api.tasks.enqueue('sendPush', options, 'default', function(error, done) {
+      api.tasks.enqueue('AHPusherSendPush', options, 'default', function(error, done) {
         
         if(error)
           cb(true);
@@ -79,7 +84,7 @@ module.exports = {
       });
     }
 
-    api.pusher._sendPush = function(options, cb){
+    api.pusher.push.syncSend = function(options, cb){
 
       //var options = {
       //  deviceIds: [ 'DEVICE_ID' ],
@@ -90,7 +95,7 @@ module.exports = {
       //  }
       //};
 
-      api.pusher.push.send(options.deviceIds, options.data, function (result) {
+      api.pusher.push.transport.send(options.deviceIds, options.data, function (result) {
         if(result === true)
           cb();
         else
