@@ -9,7 +9,7 @@ Please look config file
 
 ## using async function
 
-You must setting `config/tasks.js` `scheduler: true,` to use 
+You must setting `config/tasks.js` `scheduler: true`, `minTaskProcessors > 0` and `maxTaskProcessors > 0` to use
 
 ## email
 ### api.pusher.mail.asyncSend(options,cb);
