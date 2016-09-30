@@ -3,9 +3,15 @@
 Send email or push notification.
 Provider sync and async function to push or mail.
 
+## install from npm
+
+`npm install ah-pusher-plugin --save`
+
+`npm run actionhero link -- --name=ah-pusher-plugin`
+
 ## config
 
-Please look config file
+Please look config file at `config/plugin/ah-pusher-plugin.js`
 
 ## using async function
 

@@ -4,9 +4,19 @@
   "description": "pusher plugin for actionhero",
   "version": "0.0.1",
   "homepage": "http://actionherojs.com",
-  "repository": {},
   "license": "MIT",
-  "keywords": ["actionherojs", "actionhero", "plugin"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericli1018/ah-pusher-plugin"
+  },
+  "keywords": [
+    "actionherojs",
+    "actionhero",
+    "plugin",
+    "nodemailer",
+    "push",
+    "notification"
+  ],
   "engines": {
     "node": ">=0.10.0"
   },
@@ -20,5 +30,6 @@
     "node-pushnotifications": "latest",
     "nodemailer": "latest",
     "q": "latest"
-  }
+  },
+  "main": "index.js"
 }
