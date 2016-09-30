@@ -19,7 +19,7 @@ module.exports = {
     api.pusher = {};
     
     /* Mail */
-    api.push.mail = {};
+    api.pusher.mail = {};
 
     api.pusher.mail.transport = nmailer.createTransport(configMail.options);
 		
