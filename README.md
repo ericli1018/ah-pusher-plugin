@@ -5,7 +5,11 @@ Provider sync and async function to push or mail.
 
 ## config
 
-please look config file
+Please look config file
+
+## using async function
+
+You must setting `config/tasks.js` `scheduler: true,` to use 
 
 ## email
 ### api.pusher.mail.asyncSend(options,cb);

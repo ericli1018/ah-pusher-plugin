@@ -18,7 +18,7 @@ exports['default'] = {
           from: "no-replay@example.com.tw",
           template: "default"
         },
-        templates: __dirname + "/../templates"
+        templates: __dirname + "/../../templates"
       },
       Push: {
         gcm: {
